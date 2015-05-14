@@ -5,6 +5,13 @@
     <title>Mongoose Intro</title>
 </head>
 <body>
+    <div>
+        <h3>Current Users</h3>
+        <% for(x in users){ %>
+            Name: <%= users[x].name %>,
+            Age: <%= users[x].age %> <br>
+        <% } %> <br>
+    </div>
     <form action="/users" method="post">
         Name: <input type="text" name="name">
         Age: <input type="number" name="age">

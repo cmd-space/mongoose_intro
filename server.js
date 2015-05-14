@@ -24,8 +24,14 @@ var User = mongoose.model('User', UserSchema);
 
 // root route
 app.get('/', function(req, res) {
- // This is where we would get the users from the database and send them to the index view to be displayed.
-    res.render('index');
+    User.find({}, function(err, users){
+        if(err){
+            console.log('something went wrong retrieving users');
+        } else{
+//            console.log(users);
+            res.render('index', {users: users});
+        }
+    });
 })
 // route to add a user
 app.post('/users', function(req, res) {
